@@ -29,11 +29,11 @@
 
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
-  version = "1.7.1";
+  version = "1.9.3";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-wB9iS3MFCeuI+GkXm9WJgu88KfqjKfmaItQk8uItFpw=";
+    hash = "sha256-x1pLRyQge//bu9PcDynsPgcxHd2ci750gICK+n7KpMQ=";
   };
 
   sourceRoot = ".";

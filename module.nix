@@ -57,12 +57,17 @@ in
 
     systemd = {
       packages = [ package ];
-      user.services.gpu-screen-recorder-ui.wantedBy = [ cfg.systemd.target ];
-      user.services.gpu-screen-recorder-ui.serviceConfig = {
-        ExecStart = [
-          ""
-          "${package}/bin/gsr-ui launch-daemon"
-        ];
+      user.services.gpu-screen-recorder-ui = {
+        wantedBy = [ cfg.systemd.target ];
+        serviceConfig = {
+          ExecStart = [
+            ""
+            "${package}/bin/gsr-ui launch-daemon"
+          ];
+
+          Restart = "on-failure";
+          RestartSec = 5;
+        };
       };
     };
   };
