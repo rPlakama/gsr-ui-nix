@@ -1,7 +1,6 @@
 {
   config,
   pkgs ? import <nixpkgs> { },
-  stdenv,
   lib,
   fetchurl,
   pkg-config,
@@ -28,7 +27,7 @@
   wrapperDir ? "/run/wrappers/bin",
 }:
 
-stdenv.mkDerivation (finalAttrs: {
+pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
   version = "1.7.1";
 
@@ -71,7 +70,6 @@ stdenv.mkDerivation (finalAttrs: {
         --prefix PATH : ${wrapperDir} \
         --suffix PATH : ${
           lib.makeBinPath [
-            hyprland
             notify
             gpu-screen-recorder-wrapped
           ]
@@ -84,11 +82,6 @@ stdenv.mkDerivation (finalAttrs: {
         }
     '';
 
-  #postInstall = ''
-  #  substituteInPlace $out/lib/systemd/user/gpu-screen-recorder-ui.service \
-  #    --replace-fail "gsr-ui" "$out/bin/gsr-ui"
-  #'';
-
   meta = {
     #changelog = "https://git.dec05eba.com/gpu-screen-recorder-ui/tree/com.dec05eba.gpu_screen_recorder.appdata.xml#n82";
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
@@ -100,7 +93,12 @@ stdenv.mkDerivation (finalAttrs: {
         email = "enovale@proton.me";
         name = "enova";
       }
+      {
+        email = "iwisp360@protonmail.com";
+        name = "iWisp360";
+      }
     ];
+
     platforms = [ "x86_64-linux" ];
   };
 })
