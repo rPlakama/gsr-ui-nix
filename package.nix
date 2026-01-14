@@ -1,5 +1,4 @@
 {
-  config,
   pkgs ? import <nixpkgs> { },
   lib,
   fetchurl,
@@ -20,7 +19,6 @@
   libXext,
   libXi,
   libcap,
-  hyprland,
   notify,
   wayland,
   wayland-scanner,
@@ -48,6 +46,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libpulseaudio
+    desktop-file-utils
     libdrm
     libX11
     libXrandr
