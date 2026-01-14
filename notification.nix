@@ -1,5 +1,4 @@
 {
-  config,
   pkgs ? import <nixpkgs> { },
   stdenv,
   lib,
@@ -10,12 +9,10 @@
   meson,
   ninja,
   libdrm,
-  gpu-screen-recorder,
   libglvnd,
   libX11,
   libXrandr,
   libXext,
-  hyprland,
   wayland,
   wayland-scanner,
 }:
@@ -49,7 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
 
   preFixup = ''
     wrapProgram $out/bin/gsr-notify \
-    --prefix PATH : ${hyprland} \
     --prefix LD_LIBRARY_PATH : ${
       lib.makeLibraryPath [
         libglvnd
