@@ -10,6 +10,7 @@
   ninja,
   libpulseaudio,
   libdrm,
+  mesa,
   gpu-screen-recorder,
   libglvnd,
   libX11,
@@ -75,6 +76,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
         } \
         --prefix LD_LIBRARY_PATH : ${
           lib.makeLibraryPath [
+            mesa
             libglvnd
             addDriverRunpath.driverLink
           ]
