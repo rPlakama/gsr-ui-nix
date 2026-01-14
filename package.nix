@@ -8,6 +8,7 @@
   makeWrapper,
   meson,
   ninja,
+  cmake,
   libpulseaudio,
   libdrm,
   mesa,
@@ -41,8 +42,8 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     pkg-config
     makeWrapper
     meson
+    cmake
     ninja
-    wayland-scanner
   ];
 
   buildInputs = [
@@ -55,8 +56,9 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     libXcursor
     libXext
     libXi
-    libcap
     wayland
+    wayland-scanner
+    libcap
   ];
 
   preFixup =
