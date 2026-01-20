@@ -29,11 +29,11 @@
 
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
-  version = "1.9.3";
+  version = "1.10.1";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-x1pLRyQge//bu9PcDynsPgcxHd2ci750gICK+n7KpMQ=";
+    hash = "sha256-T9leA9KaGZO2n1Ixf6rOPFL6FaEG+F0+UwHBu6eU2EE=";
   };
 
   sourceRoot = ".";
@@ -86,7 +86,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     '';
 
   meta = {
-    #changelog = "https://git.dec05eba.com/gpu-screen-recorder-ui/tree/com.dec05eba.gpu_screen_recorder.appdata.xml#n82";
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-ui/about/";
     license = lib.licenses.gpl3Only;
