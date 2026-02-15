@@ -22,6 +22,7 @@
   libXi,
   libcap,
   notify,
+  dbus,
   wayland,
   wayland-scanner,
   wrapperDir ? "/run/wrappers/bin",
@@ -29,11 +30,11 @@
 
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
-  version = "1.10.1";
+  version = "1.10.7";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-T9leA9KaGZO2n1Ixf6rOPFL6FaEG+F0+UwHBu6eU2EE=";
+    hash = "sha256-hkQEXA5XhlUqqnR93owEQdwB0WeDlx+ywiqkfwipRw4=";
   };
 
   sourceRoot = ".";
@@ -57,6 +58,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     libXext
     libXi
     wayland
+    dbus
     wayland-scanner
     libcap
   ];
