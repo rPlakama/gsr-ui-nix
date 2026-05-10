@@ -19,22 +19,26 @@
   libXcomposite,
   libXcursor,
   libXext,
+  libXfixes,
+  libXrender,
   libXi,
   libcap,
+  freetype,
+  glib,
+  pango,
   notify,
   dbus,
   wayland,
   wayland-scanner,
   wrapperDir ? "/run/wrappers/bin",
 }:
-
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
-  version = "1.10.7";
+  version = "1.11.6";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-hkQEXA5XhlUqqnR93owEQdwB0WeDlx+ywiqkfwipRw4=";
+    hash = "sha256-QlcC60lTjQZpbEkdvaTzTqusC3/acVpztgQNeBT4Sj8=";
   };
 
   sourceRoot = ".";
@@ -48,6 +52,9 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
+    freetype
+    glib
+    pango
     libpulseaudio
     desktop-file-utils
     libdrm
@@ -56,6 +63,8 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     libXcomposite
     libXcursor
     libXext
+    libXfixes
+    libXrender
     libXi
     wayland
     dbus
@@ -102,7 +111,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
         name = "iWisp360";
       }
     ];
-
     platforms = [ "x86_64-linux" ];
   };
 })

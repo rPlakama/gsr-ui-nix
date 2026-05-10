@@ -8,54 +8,54 @@
   makeWrapper,
   meson,
   ninja,
-  libdrm,
   libglvnd,
+  freetype,
+  pango,
   libX11,
   libXrandr,
+  libXrender,
   libXext,
   wayland,
-  wayland-scanner,
 }:
-
 stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-notification";
-  version = "1.0.7";
+  version = "1.2.3";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-notification.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-zeL15/rSPasZ98FWkG4BMlBxszvZJS8MGr6557OGeE4=";
+    hash = "sha256-vJ3cs+XNOyzLRhZ1L6qLzz1k/u2fJBrLjoStHNySk8A=";
   };
 
   sourceRoot = ".";
 
   nativeBuildInputs = [
-    pkg-config
     makeWrapper
+    pkg-config
     meson
     ninja
-    wayland-scanner
   ];
 
   buildInputs = [
-    libXext
-    libdrm
+    freetype
+    pango
     libX11
+    libXext
     libXrandr
+    libXrender
     wayland
   ];
 
   preFixup = ''
     wrapProgram $out/bin/gsr-notify \
-    --prefix LD_LIBRARY_PATH : ${
-      lib.makeLibraryPath [
-        libglvnd
-        addDriverRunpath.driverLink
-      ]
-    }
+      --prefix LD_LIBRARY_PATH : ${
+        lib.makeLibraryPath [
+          libglvnd
+          addDriverRunpath.driverLink
+        ]
+      }
   '';
 
   meta = {
-    #changelog = "https://git.dec05eba.com/gpu-screen-recorder-ui/tree/com.dec05eba.gpu_screen_recorder.appdata.xml#n82";
     description = "Notification overlay for gpu-screen-recorder-ui.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-notification/about/";
     license = lib.licenses.gpl3Only;
