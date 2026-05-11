@@ -29,7 +29,9 @@
   dbus,
   wayland,
   wayland-scanner,
+  wrapGAppsHook,
   libxkbcommon,
+  gsettings-desktop-schemas,
   wrapperDir ? "/run/wrappers/bin",
 }:
 pkgs.stdenv.mkDerivation {
@@ -43,12 +45,14 @@ pkgs.stdenv.mkDerivation {
   };
   nativeBuildInputs = [
     pkg-config
+    wrapGAppsHook
     makeWrapper
     meson
     cmake
     ninja
   ];
   buildInputs = [
+    gsettings-desktop-schemas
     libxkbcommon
     freetype
     glib
