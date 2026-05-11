@@ -35,7 +35,10 @@
       {
         packages = {
           default = self.packages.${system}.gpu-screen-recorder-ui;
-          gpu-screen-recorder-ui = pkgs.callPackage ./package.nix { };
+          gpu-screen-recorder-ui = pkgs.callPackage ./package.nix {
+            gpu-screen-recorder = self.packages.${system}.gpu-screen-recorder;
+          };
+          gpu-screen-recorder = pkgs.callPackage ./gpu-screen-recorder.nix { };
           gpu-screen-recorder-notification = pkgs.callPackage ./notification.nix { };
         };
       }

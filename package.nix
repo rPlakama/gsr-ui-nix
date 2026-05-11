@@ -1,7 +1,6 @@
 {
   pkgs ? import <nixpkgs> { },
   lib,
-  fetchurl,
   pkg-config,
   addDriverRunpath,
   desktop-file-utils,
@@ -30,19 +29,18 @@
   dbus,
   wayland,
   wayland-scanner,
+  libxkbcommon,
   wrapperDir ? "/run/wrappers/bin",
 }:
-pkgs.stdenv.mkDerivation (finalAttrs: {
+pkgs.stdenv.mkDerivation {
   pname = "gpu-screen-recorder-ui";
-  version = "1.11.6";
-
-  src = fetchurl {
-    url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-QlcC60lTjQZpbEkdvaTzTqusC3/acVpztgQNeBT4Sj8=";
+  version = "unstable-2026-05-11";
+  src = fetchGit {
+    url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
+    rev = "e9a37d135498b60e61d2b97a20725c02dcfe5ddb";
+    ref = "master";
+    submodules = true;
   };
-
-  sourceRoot = ".";
-
   nativeBuildInputs = [
     pkg-config
     makeWrapper
@@ -50,8 +48,8 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     cmake
     ninja
   ];
-
   buildInputs = [
+    libxkbcommon
     freetype
     glib
     pango
@@ -71,7 +69,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     wayland-scanner
     libcap
   ];
-
   preFixup =
     let
       gpu-screen-recorder-wrapped = gpu-screen-recorder.override {
@@ -95,7 +92,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
           ]
         }
     '';
-
   meta = {
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-ui/about/";
@@ -110,7 +106,11 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
         email = "iwisp360@protonmail.com";
         name = "iWisp360";
       }
+      {
+        email = "rPlakama@proton.me";
+        name = "rPlakama";
+      }
     ];
     platforms = [ "x86_64-linux" ];
   };
-})
+}

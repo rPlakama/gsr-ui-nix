@@ -72,5 +72,8 @@ in
     };
   };
 
-  meta.maintainers = with lib.maintainers; [ enova ];
+  meta.maintainers = with lib.maintainers; [
+    enova
+    rPlakama
+  ];
 }
