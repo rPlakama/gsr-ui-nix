@@ -16,7 +16,7 @@
   libXrender,
   libXext,
   gsettings-desktop-schemas,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   glib,
   wayland,
 }:
@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     meson
     ninja
-    wrapGAppsHook
+    wrapGAppsHook3
   ];
 
   buildInputs = [
