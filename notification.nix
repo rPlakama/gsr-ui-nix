@@ -15,6 +15,9 @@
   libXrandr,
   libXrender,
   libXext,
+  gsettings-desktop-schemas,
+  wrapGAppsHook3,
+  glib,
   wayland,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -33,9 +36,12 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     meson
     ninja
+    wrapGAppsHook3
   ];
 
   buildInputs = [
+    gsettings-desktop-schemas
+    glib
     freetype
     pango
     libX11
