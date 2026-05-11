@@ -34,11 +34,11 @@
 }:
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "gpu-screen-recorder-ui";
-  version = "1.11.8";
+  version = "1.11.6";
 
   src = fetchurl {
     url = "https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.${finalAttrs.version}.tar.gz";
-    hash = "sha256-1kXaoXKi897zN5TcOBXnTK6MtEH/25EOG4FTpE/4aN0=";
+    hash = "sha256-QlcC60lTjQZpbEkdvaTzTqusC3/acVpztgQNeBT4Sj8=";
   };
 
   sourceRoot = ".";
@@ -102,11 +102,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.gpl3Only;
     mainProgram = "gpu-screen-recorder-ui";
     maintainers = with lib.maintainers; [
-      {
-        email = "rPlakama@proton.me";
-        name = "rPlakama";
-      }
-
       {
         email = "enovale@proton.me";
         name = "enova";

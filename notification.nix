@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-notification/about/";
     license = lib.licenses.gpl3Only;
     mainProgram = "gpu-screen-recorder-notification";
-    maintainers = with lib.maintainers; [ rPlakama ];
+    maintainers = with lib.maintainers; [ enova ];
     platforms = [ "x86_64-linux" ];
   };
 })
