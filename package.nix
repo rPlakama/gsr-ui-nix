@@ -34,12 +34,12 @@
   gsettings-desktop-schemas,
   wrapperDir ? "/run/wrappers/bin",
 }:
-pkgs.stdenv.mkDerivation {
-  pname = "gpu-screen-recorder-ui";
-  version = "unstable-2026-05-11";
+pkgs.stdenv.mkDerivation (finalAttrs: {
+  name = "gpu-screen-recorder-ui";
+
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
-    rev = "e9a37d135498b60e61d2b97a20725c02dcfe5ddb";
+    rev = "aa7a02ce89de1ce2879d209da2e5c25889fff409";
     ref = "master";
     submodules = true;
   };
@@ -117,4 +117,4 @@ pkgs.stdenv.mkDerivation {
     ];
     platforms = [ "x86_64-linux" ];
   };
-}
+})
