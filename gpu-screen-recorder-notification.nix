@@ -2,7 +2,7 @@
   pkgs ? import <nixpkgs> { },
   stdenv,
   lib,
-  fetchurl,
+  cmake,
   pkg-config,
   addDriverRunpath,
   makeWrapper,
@@ -19,6 +19,8 @@
   wrapGAppsHook3,
   glib,
   wayland,
+  libxkbcommon,
+  wayland-scanner,
 }:
 stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-notification";
@@ -28,10 +30,8 @@ stdenv.mkDerivation (finalAttrs: {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-notification";
     rev = "013e758ecba50ca2043f6f9d334aebcbca6dbdd5";
     ref = "master";
-    # submodules = true;
+    submodules = true;
   };
-
-  sourceRoot = ".";
 
   nativeBuildInputs = [
     makeWrapper
@@ -39,10 +39,12 @@ stdenv.mkDerivation (finalAttrs: {
     meson
     ninja
     wrapGAppsHook3
+    cmake
   ];
 
   buildInputs = [
     gsettings-desktop-schemas
+    libxkbcommon
     glib
     freetype
     pango
@@ -51,6 +53,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     libXrender
     wayland
+    wayland-scanner
   ];
 
   preFixup = ''
