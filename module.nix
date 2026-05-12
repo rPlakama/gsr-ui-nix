@@ -10,7 +10,7 @@ let
   cfg = config.programs.gpu-screen-recorder.ui;
   package = cfg.package.override {
     inherit (config.security) wrapperDir;
-    notify = cfg.notificationPackage;
+    gpu-screen-recorder-notification = cfg.notificationPackage;
   };
 in
 {

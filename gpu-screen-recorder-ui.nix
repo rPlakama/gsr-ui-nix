@@ -25,7 +25,7 @@
   freetype,
   glib,
   pango,
-  notify,
+  gpu-screen-recorder-notification,
   dbus,
   wayland,
   wayland-scanner,
@@ -36,6 +36,7 @@
 }:
 pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
+  version = "1.12.0";
 
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
@@ -84,7 +85,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
         --prefix PATH : ${wrapperDir} \
         --suffix PATH : ${
           lib.makeBinPath [
-            notify
+            gpu-screen-recorder-notification
             gpu-screen-recorder-wrapped
           ]
         } \
