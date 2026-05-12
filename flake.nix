@@ -1,5 +1,5 @@
 {
-  description = "GPU Screen Recorder Shadowplay UI Flake";
+  description = "gsr-ui pkg flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -35,11 +35,12 @@
       {
         packages = {
           default = self.packages.${system}.gpu-screen-recorder-ui;
-          gpu-screen-recorder-ui = pkgs.callPackage ./package.nix {
+          gpu-screen-recorder-ui = pkgs.callPackage ./gpu-screen-recorder-ui.nix {
             gpu-screen-recorder = self.packages.${system}.gpu-screen-recorder;
+            gpu-screen-recorder-notification = self.packages.${system}.gpu-screen-recorder-notification;
           };
           gpu-screen-recorder = pkgs.callPackage ./gpu-screen-recorder.nix { };
-          gpu-screen-recorder-notification = pkgs.callPackage ./notification.nix { };
+          gpu-screen-recorder-notification = pkgs.callPackage ./gpu-screen-recorder-notification.nix { };
         };
       }
     )
