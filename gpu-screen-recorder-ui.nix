@@ -44,6 +44,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     ref = "master";
     submodules = true;
   };
+
   nativeBuildInputs = [
     pkg-config
     wrapGAppsHook3
@@ -52,6 +53,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     cmake
     ninja
   ];
+
   buildInputs = [
     gsettings-desktop-schemas
     libxkbcommon
@@ -74,6 +76,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     wayland-scanner
     libcap
   ];
+
   preFixup =
     let
       gpu-screen-recorder-wrapped = gpu-screen-recorder.override {
@@ -87,8 +90,9 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
           lib.makeBinPath [
             gpu-screen-recorder-notification
             gpu-screen-recorder-wrapped
+            pkgs.bash
           ]
-        } \
+        }:"$out/bin" \
         --prefix LD_LIBRARY_PATH : ${
           lib.makeLibraryPath [
             mesa
@@ -97,6 +101,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
           ]
         }
     '';
+
   meta = {
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-ui/about/";
