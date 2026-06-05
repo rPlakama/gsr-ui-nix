@@ -34,13 +34,6 @@
   gsettings-desktop-schemas,
   wrapperDir ? "/run/wrappers/bin",
 }:
-let
-  mgl-src = fetchGit {
-    url = "https://git.dec05eba.com/mgl";
-    rev = "3a2d2090c066d1fb9ee9b8f5f228d9b0f784753b";
-    ref = "master";
-  };
-in
 pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
   version = "1.12.4";
@@ -50,11 +43,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     ref = "master";
     submodules = true;
   };
-
-  postUnpack = ''
-    cp -r ${mgl-src} $sourceRoot/depends/mglpp/depends/mgl
-    chmod -R u+w $sourceRoot/depends/mglpp/depends/mgl
-  '';
 
   nativeBuildInputs = [
     pkg-config
