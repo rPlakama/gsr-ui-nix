@@ -56,6 +56,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     gsettings-desktop-schemas
+    mesa
     libxkbcommon
     freetype
     glib
