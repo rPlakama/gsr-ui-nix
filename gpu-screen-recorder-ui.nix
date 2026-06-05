@@ -34,16 +34,27 @@
   gsettings-desktop-schemas,
   wrapperDir ? "/run/wrappers/bin",
 }:
+let
+  mgl-src = fetchGit {
+    url = "https://git.dec05eba.com/mgl";
+    rev = "3a2d2090c066d1fb9ee9b8f5f228d9b0f784753b";
+    ref = "master";
+  };
+in
 pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
   version = "1.12.4";
-
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
     rev = "98baef1a51665d7337e64f0fb5b14feccb64be5c";
     ref = "master";
     submodules = true;
   };
+
+  postUnpack = ''
+    cp -r ${mgl-src} $sourceRoot/depends/mglpp/depends/mgl
+    chmod -R u+w $sourceRoot/depends/mglpp/depends/mgl
+  '';
 
   nativeBuildInputs = [
     pkg-config
@@ -53,7 +64,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     cmake
     ninja
   ];
-
   buildInputs = [
     gsettings-desktop-schemas
     mesa
@@ -77,7 +87,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     wayland-scanner
     libcap
   ];
-
   preFixup =
     let
       gpu-screen-recorder-wrapped = gpu-screen-recorder.override {
@@ -102,7 +111,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
           ]
         }
     '';
-
   meta = {
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-ui/about/";
