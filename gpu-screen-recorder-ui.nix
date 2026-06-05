@@ -36,10 +36,11 @@
 }:
 pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
-  version = "1.12.4";
+  version = "1.12.3";
+
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
-    rev = "98baef1a51665d7337e64f0fb5b14feccb64be5c";
+    rev = "d59095a6d2a5fe243cfef9b6a147e485d789ddd5";
     ref = "master";
     submodules = true;
   };
@@ -52,9 +53,9 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     cmake
     ninja
   ];
+
   buildInputs = [
     gsettings-desktop-schemas
-    mesa
     libxkbcommon
     freetype
     glib
@@ -75,6 +76,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     wayland-scanner
     libcap
   ];
+
   preFixup =
     let
       gpu-screen-recorder-wrapped = gpu-screen-recorder.override {
@@ -99,6 +101,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
           ]
         }
     '';
+
   meta = {
     description = "Shadowplay-like frontend for gpu-screen-recorder.";
     homepage = "https://git.dec05eba.com/gpu-screen-recorder-ui/about/";
