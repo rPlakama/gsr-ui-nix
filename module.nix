@@ -31,14 +31,6 @@ in
           wrappers for promptless recording.
         '';
       };
-
-      systemd.target = lib.mkOption {
-        type = lib.types.str;
-        description = ''
-          The systemd target that will automatically start the gsr-ui service.
-        '';
-        default = "graphical-session.target";
-      };
     };
   };
 
@@ -54,22 +46,6 @@ in
       package
       cfg.notificationPackage
     ];
-
-    systemd = {
-      packages = [ package ];
-      user.services.gpu-screen-recorder-ui = {
-        wantedBy = [ cfg.systemd.target ];
-        serviceConfig = {
-          ExecStart = [
-            ""
-            "${package}/bin/gsr-ui launch-daemon"
-          ];
-
-          Restart = "on-failure";
-          RestartSec = 5;
-        };
-      };
-    };
   };
 
   meta.maintainers = with lib.maintainers; [
