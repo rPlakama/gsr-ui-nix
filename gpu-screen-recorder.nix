@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder";
-    rev = "2015aa71bd091542af677ee619f9492d2776258d";
+    rev = "a805f7458b0c9f41c2660e585bb38fa835559e01";
     ref = "master";
     submodules = true;
   };
