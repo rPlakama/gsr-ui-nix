@@ -26,15 +26,16 @@
   vulkan-loader,
   wrapperDir ? "/run/wrappers/bin",
   gitUpdater,
+
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder";
-  version = "5.13.8";
+  version = "5.14.1";
 
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder";
-    rev = "a805f7458b0c9f41c2660e585bb38fa835559e01";
+    rev = "a453e85f72acf116e1bd2021864c6a715f98362c";
     ref = "master";
     submodules = true;
   };
