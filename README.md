@@ -20,4 +20,4 @@ Then you can use it in your configuration.nix
     };
 ```
 
-
+# btw, err 128 similar is 'cause gsr-ui git (link) is down; I guess so...
