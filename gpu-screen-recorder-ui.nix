@@ -38,11 +38,11 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
   version = "1.13.2";
 
-  src = fetchGit {
+  src = pkgs.fetchgit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder-ui";
     rev = "56f5bdf1ef43744e0cdaa22e9b9c9a9bf9efe3ba";
-    ref = "master";
-    submodules = true;
+    sha256 = "1h2sjv7fbc3qvd2miji8p27qm44y8wmqx8vkjr8rhm7kvg6x0lp0";
+    fetchSubmodules = true;
   };
 
   nativeBuildInputs = [
