@@ -31,13 +31,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder";
-  version = "5.15.3";
+  version = "6.0.0";
 
   src = fetchGit {
     url = "https://repo.dec05eba.com/gpu-screen-recorder";
-    rev = "8b0afd14be34d96e822a6915a8de477e049ca776";
+    rev = "80517840f4ae64469721598e8373d81f2e4493dd";
     ref = "master";
-    submodules = true;
+    fetchSubmodules = true;
   };
 
   nativeBuildInputs = [
