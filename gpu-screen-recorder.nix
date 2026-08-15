@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
     url = "https://repo.dec05eba.com/gpu-screen-recorder";
     rev = "80517840f4ae64469721598e8373d81f2e4493dd";
     ref = "master";
-    fetchSubmodules = true;
+    submodules = true;
   };
 
   nativeBuildInputs = [
