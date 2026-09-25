@@ -1,4 +1,5 @@
 {
+  src,
   pkgs ? import <nixpkgs> { },
   stdenv,
   lib,
@@ -26,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-notification";
   version = "1.3.6";
 
-  src = ./gpu-screen-recorder-notification;
+  inherit src;
 
   nativeBuildInputs = [
     makeWrapper

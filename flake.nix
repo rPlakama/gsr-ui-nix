@@ -4,6 +4,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
+    gpu-screen-recorder = {
+      url = "git+https://repo.dec05eba.com/gpu-screen-recorder";
+      flake = false;
+    };
+    gpu-screen-recorder-ui = {
+      url = "git+https://repo.dec05eba.com/gpu-screen-recorder-ui?submodules=1";
+      flake = false;
+    };
+    gpu-screen-recorder-notification = {
+      url = "git+https://repo.dec05eba.com/gpu-screen-recorder-notification?submodules=1";
+      flake = false;
+    };
   };
 
   outputs =
@@ -11,6 +24,9 @@
       self,
       nixpkgs,
       flake-utils,
+      gpu-screen-recorder,
+      gpu-screen-recorder-ui,
+      gpu-screen-recorder-notification,
     }:
     let
       mkModule =
@@ -36,11 +52,16 @@
         packages = {
           default = self.packages.${system}.gpu-screen-recorder-ui;
           gpu-screen-recorder-ui = pkgs.callPackage ./gpu-screen-recorder-ui.nix {
+            src = gpu-screen-recorder-ui;
             gpu-screen-recorder = self.packages.${system}.gpu-screen-recorder;
             gpu-screen-recorder-notification = self.packages.${system}.gpu-screen-recorder-notification;
           };
-          gpu-screen-recorder = pkgs.callPackage ./gpu-screen-recorder.nix { };
-          gpu-screen-recorder-notification = pkgs.callPackage ./gpu-screen-recorder-notification.nix { };
+          gpu-screen-recorder = pkgs.callPackage ./gpu-screen-recorder.nix {
+            src = gpu-screen-recorder;
+          };
+          gpu-screen-recorder-notification = pkgs.callPackage ./gpu-screen-recorder-notification.nix {
+            src = gpu-screen-recorder-notification;
+          };
         };
 
         apps = {
@@ -48,10 +69,7 @@
             type = "app";
             program = toString (
               pkgs.writeShellScript "gsr-update" ''
-                for gitdir in gpu-screen-recorder-ui gpu-screen-recorder gpu-screen-recorder-notification; do
-                  echo "==> git pull $gitdir"
-                  git -C "$gitdir" pull --ff-only
-                done
+                exec ${pkgs.nix}/bin/nix --extra-experimental-features 'nix-command flakes' flake update
               ''
             );
           };

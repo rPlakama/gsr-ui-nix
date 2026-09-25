@@ -1,4 +1,5 @@
 {
+  src,
   pkgs ? import <nixpkgs> { },
   lib,
   pkg-config,
@@ -38,7 +39,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder-ui";
   version = "1.13.10";
 
-  src = ./gpu-screen-recorder-ui;
+  inherit src;
 
   nativeBuildInputs = [
     pkg-config

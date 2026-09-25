@@ -1,4 +1,5 @@
 {
+  src,
   stdenv,
   lib,
   makeWrapper,
@@ -33,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder";
   version = "6.1.3";
 
-  src = ./gpu-screen-recorder;
+  inherit src;
 
   nativeBuildInputs = [
     pkg-config

@@ -18,6 +18,58 @@
         "type": "github"
       }
     },
+    "gpu-screen-recorder": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790129049,
+        "narHash": "sha256-1bWCfwX28uzGZoxJDriKpUxPo6PAAO0gq3JU+Xc0N0k=",
+        "ref": "refs/heads/master",
+        "rev": "396526a908f8f1b9cb826a9187a2c9150f44d94d",
+        "revCount": 1514,
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder"
+      }
+    },
+    "gpu-screen-recorder-notification": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789175973,
+        "narHash": "sha256-UmK9aDVsWgMZx9dCA0LFLmY0NLmhwh3O2VgztUzvPOs=",
+        "ref": "refs/heads/master",
+        "rev": "54bc6c8f139a5ff4025a4585d01c9e3f23894b72",
+        "revCount": 114,
+        "submodules": true,
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder-notification"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder-notification"
+      }
+    },
+    "gpu-screen-recorder-ui": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790129086,
+        "narHash": "sha256-mH/xSdsDHwokemGq2h/qaf/ImN3xlrZupcK+5ptXOns=",
+        "ref": "refs/heads/master",
+        "rev": "99c9da14757152423c6d9f8eae02963acfc24601",
+        "revCount": 743,
+        "submodules": true,
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder-ui"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://repo.dec05eba.com/gpu-screen-recorder-ui"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1777954456,
@@ -37,6 +89,9 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "gpu-screen-recorder": "gpu-screen-recorder",
+        "gpu-screen-recorder-notification": "gpu-screen-recorder-notification",
+        "gpu-screen-recorder-ui": "gpu-screen-recorder-ui",
         "nixpkgs": "nixpkgs"
       }
     },
