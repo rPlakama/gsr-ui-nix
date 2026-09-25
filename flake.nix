@@ -64,16 +64,6 @@
           };
         };
 
-        apps = {
-          update = {
-            type = "app";
-            program = toString (
-              pkgs.writeShellScript "gsr-update" ''
-                exec ${pkgs.nix}/bin/nix --extra-experimental-features 'nix-command flakes' flake update
-              ''
-            );
-          };
-        };
       }
     )
     // {
