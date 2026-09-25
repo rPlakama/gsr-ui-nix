@@ -42,6 +42,20 @@
           gpu-screen-recorder = pkgs.callPackage ./gpu-screen-recorder.nix { };
           gpu-screen-recorder-notification = pkgs.callPackage ./gpu-screen-recorder-notification.nix { };
         };
+
+        apps = {
+          update = {
+            type = "app";
+            program = toString (
+              pkgs.writeShellScript "gsr-update" ''
+                for gitdir in gpu-screen-recorder-ui gpu-screen-recorder gpu-screen-recorder-notification; do
+                  echo "==> git pull $gitdir"
+                  git -C "$gitdir" pull --ff-only
+                done
+              ''
+            );
+          };
+        };
       }
     )
     // {

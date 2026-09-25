@@ -33,12 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   name = "gpu-screen-recorder";
   version = "6.1.3";
 
-  src = fetchGit {
-    url = "https://repo.dec05eba.com/gpu-screen-recorder";
-    rev = "396526a908f8f1b9cb826a9187a2c9150f44d94d";
-    ref = "master";
-    submodules = true;
-  };
+  src = ./gpu-screen-recorder;
 
   nativeBuildInputs = [
     pkg-config
