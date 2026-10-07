@@ -21,11 +21,11 @@
     "gpu-screen-recorder": {
       "flake": false,
       "locked": {
-        "lastModified": 1790129049,
-        "narHash": "sha256-1bWCfwX28uzGZoxJDriKpUxPo6PAAO0gq3JU+Xc0N0k=",
+        "lastModified": 1791161097,
+        "narHash": "sha256-erqPuyFU35kPU+fCP8AELSfyOfRXUEgJoB1ujHOfJxc=",
         "ref": "refs/heads/master",
-        "rev": "396526a908f8f1b9cb826a9187a2c9150f44d94d",
-        "revCount": 1514,
+        "rev": "7f9405e8b1c5bfacb7924ec4fbd475fbb0ccf99d",
+        "revCount": 1520,
         "type": "git",
         "url": "https://repo.dec05eba.com/gpu-screen-recorder"
       },
@@ -72,11 +72,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790185690,
-        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
+        "lastModified": 1791260994,
+        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
+        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
         "type": "github"
       },
       "original": {
