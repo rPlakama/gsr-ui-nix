@@ -55,11 +55,11 @@
     "gpu-screen-recorder-ui": {
       "flake": false,
       "locked": {
-        "lastModified": 1795727917,
-        "narHash": "sha256-7IfQ+guTox/1c29ocrOIq7B/Nh14iBSEi9hQkdAgf3M=",
+        "lastModified": 1795767714,
+        "narHash": "sha256-BQ2tOqNnKDYqvEUbUM2ld0otMoNxBRxXBsNnpbYuC1I=",
         "ref": "refs/heads/master",
-        "rev": "e598cf3c83786bd0a905a15c19f26cab3593ec04",
-        "revCount": 808,
+        "rev": "40a40cd6f7762d4546c6aa99951d5be125b1b80c",
+        "revCount": 824,
         "submodules": true,
         "type": "git",
         "url": "https://repo.dec05eba.com/gpu-screen-recorder-ui"
