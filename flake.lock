@@ -21,11 +21,11 @@
     "gpu-screen-recorder": {
       "flake": false,
       "locked": {
-        "lastModified": 1795695447,
-        "narHash": "sha256-dLHRD+A7gI5DCIJ7wO91+elQ19KkgQn5KzgM+Gy86xg=",
+        "lastModified": 1795851248,
+        "narHash": "sha256-CRqo+V4xytFpjQPAoP7X+awrL4HxanfyYXkVBlHiuG8=",
         "ref": "refs/heads/master",
-        "rev": "70f8c9bfd63ebd003abbd0d7074377715aae177d",
-        "revCount": 1559,
+        "rev": "31acaf80d767e31f56d3f367c323040ee101db4f",
+        "revCount": 1562,
         "type": "git",
         "url": "https://repo.dec05eba.com/gpu-screen-recorder"
       },
@@ -37,11 +37,11 @@
     "gpu-screen-recorder-notification": {
       "flake": false,
       "locked": {
-        "lastModified": 1795586926,
-        "narHash": "sha256-x/ZG5PtYkeoNBqNUaXx1RWkH3g/1U2tKsrFIj41Nke8=",
+        "lastModified": 1795840934,
+        "narHash": "sha256-DF5nK9YzxmtC6EGT2sbYEfOBIwJ5lh442nvh5eZjeqE=",
         "ref": "refs/heads/master",
-        "rev": "f4e96239fd62e6ae7f1f9af23accb15b3840b77b",
-        "revCount": 123,
+        "rev": "51d09d05e14f4f7c089fce21158e699c4d0bfb0d",
+        "revCount": 124,
         "submodules": true,
         "type": "git",
         "url": "https://repo.dec05eba.com/gpu-screen-recorder-notification"
@@ -55,11 +55,11 @@
     "gpu-screen-recorder-ui": {
       "flake": false,
       "locked": {
-        "lastModified": 1795767714,
-        "narHash": "sha256-BQ2tOqNnKDYqvEUbUM2ld0otMoNxBRxXBsNnpbYuC1I=",
+        "lastModified": 1795840990,
+        "narHash": "sha256-/SMPY6lOUqjtnMeVzY6Dnt8uKoDjZUzwYJAdrmJQ7C4=",
         "ref": "refs/heads/master",
-        "rev": "40a40cd6f7762d4546c6aa99951d5be125b1b80c",
-        "revCount": 824,
+        "rev": "ee3bc7a319e1dc27f0d45130d417bdf2e10fd199",
+        "revCount": 830,
         "submodules": true,
         "type": "git",
         "url": "https://repo.dec05eba.com/gpu-screen-recorder-ui"
